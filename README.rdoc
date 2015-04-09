@@ -2,4 +2,4 @@
 
 Basic application from book Rails Tutorial
 
-Authentcation & Logging .. from the beginning. 
+Authentication & Logging .. from the beginning. 
