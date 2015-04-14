@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'bootstrap-sass'
-gem 'bcrypt'
+gem 'bcrypt-ruby'
+
 
 
 # Use sqlite3 as the database for Active Record
@@ -17,11 +18,10 @@ group :test do
   gem 'guard-rspec'
   gem 'rb-inotify'
   gem 'libnotify'
-
   gem 'guard-spork'
-
   gem 'spork', :github => 'sporkrb/spork'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
+  gem 'factory_girl_rails'
 
 end
 
