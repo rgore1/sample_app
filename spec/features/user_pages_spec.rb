@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 require 'coffee_script'
-require 'factory_girl'
+require 'factory_girl_rails'
 
 describe "User pages" do
 
@@ -12,14 +12,12 @@ describe "User pages" do
     before { visit signup_path }
 
     it { expect(page).to have_selector('h1', text: 'Sign up') }
-    it { expect(page).to have_selector('title', text: 'Sign up') }
   end
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
     it { expect(page).to have_select('h1', text: user.name) }
-    it { expect(page).to have_select('title', text: user.name) }
   end
 
 
@@ -51,6 +49,11 @@ describe "User pages" do
       end
 
     end
+
+    describe "after saving the user" do
+          it { should have_link('Sign out') }
+    end
+
 
   end
 end

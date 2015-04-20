@@ -4,8 +4,6 @@ gem 'rails', '4.2.0'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 
-
-
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'annotate'
@@ -22,7 +20,6 @@ group :test do
   gem 'spork', :github => 'sporkrb/spork'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'factory_girl_rails'
-
 end
 
 group :assets do

@@ -9,13 +9,14 @@
 #  updated_at      :datetime
 #  password_digest :string
 #
-
 class User < ActiveRecord::Base
-  attr_accessor :name, :email, :password, :password_confirmation
 
-  before_save { |user| user.email = email.downcase }
+  include ActiveModel::ForbiddenAttributesProtection
+
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+
+  has_secure_password
 
 
   validates :name, presence: true, length: {maximum: 50}
@@ -25,15 +26,14 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
 
-  def authenticate
-    password.equal?(password_confirmation)
-  end
 
   private
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end
+
+
 
 end
 

@@ -3,10 +3,9 @@ module UsersHelper
   def gravatar_for(user)
 
 =begin
-    //FIXME NULL CHECK
+    //dont allow null user email
 =end
-   raise ArgumentError ' Email cannot be nil' unless  !user.email.nil?
-
+    (user.email)
     gravatar_id = Digest::MD5::hexdigest(user.email)
     gravatar_url = "https://secure.gravatar.com/avatars/#{gravatar_id}.png"
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
