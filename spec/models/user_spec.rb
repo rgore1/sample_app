@@ -19,6 +19,16 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond to(:admin) }
+  it { should respond to(:authenticate) }
+  it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before { @user.toggle!(:admin) }
+    it { should be_admin }
+  end
+
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
@@ -42,7 +52,6 @@ describe User do
     end
 
   end
-
 
   describe "remember token" do
 
