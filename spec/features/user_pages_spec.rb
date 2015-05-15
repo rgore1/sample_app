@@ -3,6 +3,7 @@ require 'spec_helper'
 require 'coffee_script'
 require 'factory_girl_rails'
 
+
 describe "User pages" do
 
   subject { page }
@@ -94,11 +95,13 @@ describe "User pages" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
 
+      describe "after saving the user" do
+        it { should have_link('Sign out') }
+      end
+
     end
 
-    describe "after saving the user" do
-      it { should have_link('Sign out') }
-    end
+
 
     describe "edit" do
 
